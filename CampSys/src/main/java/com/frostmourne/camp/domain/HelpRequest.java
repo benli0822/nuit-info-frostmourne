@@ -3,7 +3,7 @@ package com.frostmourne.camp.domain;
 import javax.persistence.*;
 import java.util.Date;
 
-/**
+/** a help request is a people who need to find help
  * Created by jamesRMBP on 04/12/14.
  */
 public class HelpRequest {
@@ -27,6 +27,43 @@ public class HelpRequest {
 
     private String description;
 
-    
+    public HelpRequest() {
+    }
 
+    public long getId() {
+        return id;
+    }
+
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
+    }
+
+    public HelpRequestType getType() {
+        return type;
+    }
+
+    public void setType(HelpRequestType type) {
+        this.type = type;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

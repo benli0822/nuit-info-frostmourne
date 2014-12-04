@@ -38,6 +38,57 @@ public class Donation {
     @OneToMany(fetch=FetchType.LAZY)
     private Set<Campsite> receiverCamp;
 
+    public long getId() {
+        return id;
+    }
 
 
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public String getObjective() {
+        return objective;
+    }
+
+    public void setObjective(String objective) {
+        this.objective = objective;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public User getDonorsPerson() {
+        return donorsPerson;
+    }
+
+    public void setDonorsPerson(User donorsPerson) {
+        this.donorsPerson = donorsPerson;
+    }
+
+    public Organization getDonorsOrganization() {
+        return donorsOrganization;
+    }
+
+    public void setDonorsOrganization(Organization donorsOrganization) {
+        this.donorsOrganization = donorsOrganization;
+    }
+
+    public Set<Campsite> getReceiverCamp() {
+        return receiverCamp;
+    }
+
+    public void setReceiverCamp(Set<Campsite> receiverCamp) {
+        this.receiverCamp = receiverCamp;
+    }
 }

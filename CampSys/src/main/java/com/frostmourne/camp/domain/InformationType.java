@@ -22,6 +22,6 @@ public enum InformationType {
     /**
      *
      */
-    General
+    normal
 
 }
