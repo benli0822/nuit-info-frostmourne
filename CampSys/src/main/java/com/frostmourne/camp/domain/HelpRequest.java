@@ -6,6 +6,7 @@ import java.util.Date;
 /** a help request is a people who need to find help
  * Created by jamesRMBP on 04/12/14.
  */
+@Entity
 public class HelpRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,9 +20,12 @@ public class HelpRequest {
 
     /**
      * which kind of help request
-     */
+        */
     @Enumerated(EnumType.STRING)
     private HelpRequestType type;
+
+
+    //private String type;
 
     private Date date;
 

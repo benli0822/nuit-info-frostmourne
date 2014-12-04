@@ -1,9 +1,8 @@
 package com.frostmourne.camp.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.hibernate.annotations.NaturalId;
+
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -25,8 +24,9 @@ public class User {
 
     private String gender;
 
-    //TODO check if we have needs to make a user address connect to a camp
-    private String address;
+    @ManyToOne(optional = true)
+    @NaturalId
+    private Campsite address;
 
     private Date birthday;
 
@@ -34,5 +34,59 @@ public class User {
 
     public User(){
 
+    }
+
+    public long getId() {
+        return id;
+    }
+
+
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public Campsite getAddress() {
+        return address;
+    }
+
+    public void setAddress(Campsite address) {
+        this.address = address;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 }

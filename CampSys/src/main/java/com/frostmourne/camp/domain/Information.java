@@ -16,6 +16,8 @@ public class Information {
     @Enumerated(EnumType.STRING)
     private InformationType type;
 
+
+    //private String type;
     private String content;
 
     private String image;
