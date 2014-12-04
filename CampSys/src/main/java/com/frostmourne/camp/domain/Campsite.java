@@ -15,11 +15,21 @@ public class Campsite {
 
     private String address;
 
-    private long totalbed;
+    private long totalBedNb;
 
+    /**
+     * who live in this campsite
+     */
     @OneToMany(fetch=FetchType.LAZY)
-    private Set<User> users;
+    private Set<User> residents;
 
-    
+    /**
+     * who can post information for the campsite
+     */
+    @OneToMany(fetch=FetchType.LAZY)
+    private Set<User> leaders;
+
+
+
 
 }
