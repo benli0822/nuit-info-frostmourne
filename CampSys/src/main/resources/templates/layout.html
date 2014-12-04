@@ -21,12 +21,15 @@
         <link rel="stylesheet" th:href="@{/css/style-wide.css}" />
     </noscript>
     <!--[if lte IE 8]><link rel="stylesheet" th:href="@{/css/ie/v8.css}" /><![endif]-->
+
+    <div layout:fragment="imports"></div>
 </head>
 <body>
-<div layout:include="common/header :: header"></div>
+<div layout:replace="common/header :: header"></div>
 <div layout:fragment="banner"></div>
 <div layout:fragment="main"></div>
 <div layout:fragment="cta"></div>
-<div layout:include="common/footer :: footer"></div>
+<div layout:replace="common/footer :: footer"></div>
+<div layout:fragment="script"></div>
 </body>
 </html>
