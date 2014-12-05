@@ -1,8 +1,12 @@
 package com.frostmourne.camp.service;
 
+import com.frostmourne.camp.domain.Information;
+import com.frostmourne.camp.domain.InformationType;
 import com.frostmourne.camp.domain.User;
+import com.frostmourne.camp.service.repository.InformationRepository;
 import com.frostmourne.camp.service.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Set;
@@ -10,10 +14,14 @@ import java.util.Set;
 /**
  * Created by jamesRMBP on 05/12/14.
  */
+@Component (value = "informationService")
 public class InformationServiceImpl implements  InformationService{
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private InformationRepository informationRepository;
 
     @Override
     public User findUserByName(long uid, String name) {
@@ -30,4 +38,6 @@ public class InformationServiceImpl implements  InformationService{
 
         return null;
     }
+
+
 }
