@@ -1,10 +1,8 @@
 package com.frostmourne.camp;
 
-import com.frostmourne.camp.domain.Campsite;
-import com.frostmourne.camp.domain.Information;
-import com.frostmourne.camp.domain.InformationType;
-import com.frostmourne.camp.domain.User;
+import com.frostmourne.camp.domain.*;
 import com.frostmourne.camp.service.repository.CampsiteRepository;
+import com.frostmourne.camp.service.repository.HelpRequestRepository;
 import com.frostmourne.camp.service.repository.InformationRepository;
 import com.frostmourne.camp.service.repository.UserRepository;
 import org.springframework.boot.SpringApplication;
@@ -25,6 +23,7 @@ public class Application {
         UserRepository userRepository = context.getBean(UserRepository.class);
         CampsiteRepository campsiteRepository = context.getBean(CampsiteRepository.class);
         InformationRepository informationRepository = context.getBean(InformationRepository.class);
+        HelpRequestRepository helpRequestRepository = context.getBean(HelpRequestRepository.class);
 
         User testUser = new User();
         Campsite testCamp = new Campsite();
@@ -66,6 +65,25 @@ public class Application {
         informationRepository.save(testInfo1);
         informationRepository.save(testInfo2);
         informationRepository.save(testInfo3);
+
+        HelpRequest testHelp1 = new HelpRequest();
+
+        testHelp1.setAuthor(testUser);
+        testHelp1.setDate(new Date());
+        testHelp1.setDescription("test4");
+        testHelp1.setType(HelpRequestType.body);
+
+        HelpRequest testHelp2 = new HelpRequest();
+
+        testHelp2.setAuthor(testUser);
+        testHelp2.setDate(new Date());
+        testHelp2.setDescription("test5");
+        testHelp2.setType(HelpRequestType.mental);
+
+        helpRequestRepository.save(testHelp1);
+        helpRequestRepository.save(testHelp2);
+
+
 
     }
 }
