@@ -5,6 +5,6 @@ package com.frostmourne.camp.domain;
  */
 public enum HelpRequestType {
     mental,
-    physiological
+    body
 
 }
