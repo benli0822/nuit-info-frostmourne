@@ -1,9 +1,14 @@
 package com.frostmourne.camp.mvc;
 
+import com.frostmourne.camp.domain.InformationType;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by JIN Benli on 04/12/14.
@@ -40,5 +45,14 @@ public class InfoController {
         return "view/info";
     }
 
+    @RequestMapping(value = "/infopost")
+    public String post(Model model) {
+        log.info("[InfoController: info], listing info all");
+        model.addAttribute("title", "All");
+        List<InformationType> allType = new ArrayList<InformationType>(Arrays.asList(InformationType.values()));
+        model.addAttribute("allType", allType);
+        log.info(model);
+        return "view/post";
+    }
 
 }

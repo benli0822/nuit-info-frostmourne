@@ -12,7 +12,7 @@
 <div layout:fragment="main">
     <!-- Main -->
     <section id="main" class="container">
-        <h2>Donate</h2>
+        <h2>Post information</h2>
 
         <div class="row">
             <div class="12u">
@@ -20,15 +20,30 @@
 
                 <!-- Table -->
                 <section class="box">
-                    <h3>Donate for a campsite or a person</h3>
+                    <h3>Post your message</h3>
 
                     <form action="#" method="post">
                         <div class="row uniform 50%">
                             <div class="6u 12u(3)">
+                                <label>Name</label>
                                 <input id="name" type="text" placeholder="Name" value="" name="name"/>
                             </div>
                             <div class="6u 12u(3)">
+                                <label>Email</label>
                                 <input id="email" type="email" placeholder="Email" value="" name="email"/>
+                            </div>
+                        </div>
+
+                        <div class="row uniform 50%">
+                            <div class="12u">
+                                <div class="select-wrapper">
+                                    <label>Type</label>
+                                    <select name="category" id="category" th:field="*{allType}">
+                                        <option th:each="type : ${allType}"
+                                                th:value="${type}"
+                                                th:text="${type}">Wireframe</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
 
@@ -44,20 +59,6 @@
                         </div>
 
                         <div class="row uniform 50%">
-                            <div class="6u 12u(3)">
-                                <input id="to" type="text" placeholder="to" value="to"/>
-                            </div>
-                        </div>
-                        <div class="row uniform 50%">
-                            <div class="6u 12u(2)">
-                                <input id="amount" type="text" placeholder="amount" value="" name="amout"/>
-                            </div>
-                            <div class="6u 12u(3)">
-                               <h3> $</h3>
-                            </div>
-                        </div>
-
-                        <div class="row uniform 50%">
                             <div class="12u">
                                 <textarea id="message" rows="6" placeholder="Enter your message" name="message"></textarea>
                             </div>
@@ -67,7 +68,7 @@
                             <div class="12u">
                                 <ul class="actions">
                                     <li>
-                                        <input type="submit" value="Donate"/>
+                                        <input type="submit" value="Send"/>
                                     </li>
                                 </ul>
                             </div>
