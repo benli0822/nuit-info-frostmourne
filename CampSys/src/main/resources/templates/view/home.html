@@ -14,7 +14,7 @@
     <!-- Banner -->
     <section id="banner">
         <h2>Camp</h2>
-        <p>This is where you will find your all you need in the camp</p>
+        <p>This is where you will find your all you need in the camps</p>
         <ul class="actions">
             <li><a href="#" class="button special">Sign Up</a></li>
 
@@ -29,7 +29,7 @@
 
         <section class="box special">
             <header class="major">
-                <h3  id="audioURLID" th:text="${audioUrl}"></h3>
+                <h3 hidden="true" id="audioURLID" th:text="${audioUrl}"></h3>
                 <h2>Be like home at camps
                     <br/>
                     and finding all services here</h2>
@@ -88,16 +88,17 @@
     <!-- CTA -->
     <section id="cta">
 
-        <h2>Sign up for beta access</h2>
+        <h2>Contact us to make it better</h2>
         <p>Camp expecting to make a better world</p>
 
-        <form>
+        <form action="mailto:youraddr@domain.tld" method="GET">
             <div class="row uniform 50%">
                 <div class="8u 12u(3)">
                     <input type="email" name="email" id="email" placeholder="Email Address" />
                 </div>
                 <div class="4u 12u(3)">
-                    <input type="submit" value="Sign Up" class="fit" />
+                    <a href="mailto:benli0822@gmail.com?Subject=[Camp]ReportIssues" class="button" target="_top">
+                        Send</a>
                 </div>
             </div>
         </form>

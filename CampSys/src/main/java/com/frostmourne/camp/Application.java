@@ -44,21 +44,21 @@ public class Application {
         Information testInfo1 = new Information();
 
         testInfo1.setSenderPerson(testUser);
-        testInfo1.setContent("test");
+        testInfo1.setContent("I want to find my son, his name is Bob, maybe I should also give his photo..");
         testInfo1.setDate(new Date());
         testInfo1.setType(InformationType.FindMyFamily);
 
         Information testInfo2 = new Information();
 
         testInfo2.setSenderPerson(testUser);
-        testInfo2.setContent("test2");
+        testInfo2.setContent("There will be a new transfer of vaccine effected this Friday");
         testInfo2.setDate(new Date());
         testInfo2.setType(InformationType.Vaccine);
 
         Information testInfo3 = new Information();
 
         testInfo3.setSenderPerson(testUser);
-        testInfo3.setContent("test3");
+        testInfo3.setContent("All residents please do not go out the night");
         testInfo3.setDate(new Date());
         testInfo3.setType(InformationType.Security);
 
@@ -70,14 +70,14 @@ public class Application {
 
         testHelp1.setAuthor(testUser);
         testHelp1.setDate(new Date());
-        testHelp1.setDescription("test4");
+        testHelp1.setDescription("I need some one help me to take on my clothes");
         testHelp1.setType(HelpRequestType.body);
 
         HelpRequest testHelp2 = new HelpRequest();
 
         testHelp2.setAuthor(testUser);
         testHelp2.setDate(new Date());
-        testHelp2.setDescription("test5");
+        testHelp2.setDescription("I need some one to talk about what happened to me!");
         testHelp2.setType(HelpRequestType.mental);
 
         helpRequestRepository.save(testHelp1);

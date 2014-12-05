@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class HomeController {
-    @RequestMapping(value = "/home")
+    @RequestMapping(value = {"/home", "/"})
     public String home(Model model) {
 
-        model.addAttribute("audioUrl", "http://translate.google.com/translate_tts?tl=en&q=Hello%20World");
+        model.addAttribute("audioUrl", "http://translate.google.com/translate_tts?tl=en&q=Welcometo%20Camp");
 
         return "view/home";
     }
