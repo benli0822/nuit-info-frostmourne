@@ -22,15 +22,25 @@
                 <section class="box">
                     <h3>Post your message</h3>
 
-                    <form action="#" method="post">
+                    <form action="#" th:action="@{/infopost}" method="post">
                         <div class="row uniform 50%">
                             <div class="6u 12u(3)">
                                 <label>Name</label>
-                                <input id="name" type="text" placeholder="Name" value="" name="name"/>
+
+                                <div th:each="user, stat : ${users}">
+                                    <label name="senderMsg" id="senderMsg"
+                                           th:text="*{users[__${stat.index}__].username}"
+                                           th:if="${session.test.equals(users[__${stat.index}__])}"/>
+                                </div>
                             </div>
                             <div class="6u 12u(3)">
-                                <label>Email</label>
-                                <input id="email" type="email" placeholder="Email" value="" name="email"/>
+                                <label>Site Camp</label>
+
+                                <div th:each="user, stat : ${users}">
+                                    <label name="senderMsg" id="senderMsg"
+                                           th:text="*{users[__${stat.index}__].address.address}"
+                                           th:if="${session.test.equals(users[__${stat.index}__])}"/>
+                                </div>
                             </div>
                         </div>
 
@@ -41,7 +51,8 @@
                                     <select name="category" id="category" th:field="*{allType}">
                                         <option th:each="type : ${allType}"
                                                 th:value="${type}"
-                                                th:text="${type}">Wireframe</option>
+                                                th:text="${type}">Wireframe
+                                        </option>
                                     </select>
                                 </div>
                             </div>
@@ -60,7 +71,8 @@
 
                         <div class="row uniform 50%">
                             <div class="12u">
-                                <textarea id="message" rows="6" placeholder="Enter your message" name="message"></textarea>
+                                <textarea id="message" rows="6" placeholder="Enter your message"
+                                          name="message" th:field="*{information.content}"></textarea>
                             </div>
                         </div>
 
@@ -68,7 +80,7 @@
                             <div class="12u">
                                 <ul class="actions">
                                     <li>
-                                        <input type="submit" value="Send"/>
+                                        <input type="submit" name="save" value="Send message"/>
                                     </li>
                                 </ul>
                             </div>

@@ -1,11 +1,22 @@
 package com.frostmourne.camp.mvc;
 
+import com.frostmourne.camp.Application;
+import com.frostmourne.camp.domain.Information;
 import com.frostmourne.camp.domain.InformationType;
+import com.frostmourne.camp.domain.User;
+import com.frostmourne.camp.service.repository.InformationRepository;
+import com.frostmourne.camp.service.repository.UserRepository;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -14,8 +25,15 @@ import java.util.List;
  * Created by JIN Benli on 04/12/14.
  */
 @Controller
+@Import(Application.class)
 public class InfoController {
     private Logger log = Logger.getLogger(InfoController.class);
+
+    @Autowired
+    private InformationRepository informationRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @RequestMapping(value = "/find")
     public String info(Model model) {
@@ -41,18 +59,41 @@ public class InfoController {
     @RequestMapping(value = "/all")
     public String all(Model model) {
         log.info("[InfoController: info], listing info all");
+        model.addAttribute("infos", informationRepository.findAll());
         model.addAttribute("title", "All");
+        log.info(model);
         return "view/info";
     }
 
     @RequestMapping(value = "/infopost")
-    public String post(Model model) {
+    public String post(final Information information, Model model, HttpSession session) {
         log.info("[InfoController: info], listing info all");
+        List<User> testList = userRepository.findUserByUsername("test");
+        User test = testList.get(0);
         model.addAttribute("title", "All");
+        session.setAttribute("test", test);
+        model.addAttribute("users", userRepository.findAll());
         List<InformationType> allType = new ArrayList<InformationType>(Arrays.asList(InformationType.values()));
         model.addAttribute("allType", allType);
         log.info(model);
         return "view/post";
+    }
+
+    @RequestMapping(value = "/infopost", method = RequestMethod.POST, params = {"save"})
+    public String post(final Information information, HttpSession session, final BindingResult bindingResult, final ModelMap model) {
+        log.info("[InfoController: post], posting an information");
+        if (bindingResult.hasErrors()) {
+            log.error(bindingResult.getAllErrors());
+            return "view/post";
+        }
+
+        User test = (User) session.getAttribute("test");
+        information.setSenderPerson(test);
+        informationRepository.save(information);
+        model.clear();
+        log.info(model);
+        log.info(informationRepository);
+        return "redirect:/all";
     }
 
 }
