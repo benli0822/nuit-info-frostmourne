@@ -48,7 +48,7 @@
                             <div class="12u">
                                 <div class="select-wrapper">
                                     <label>Type</label>
-                                    <select name="category" id="category" th:field="*{allType}">
+                                    <select name="category" id="category" th:field="*{information.type}">
                                         <option th:each="type : ${allType}"
                                                 th:value="${type}"
                                                 th:text="${type}">Wireframe

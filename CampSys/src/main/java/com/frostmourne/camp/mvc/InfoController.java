@@ -38,6 +38,7 @@ public class InfoController {
     @RequestMapping(value = "/find")
     public String info(Model model) {
         log.info("[InfoController: info], listing info find family");
+        model.addAttribute("infos", informationRepository.findInformationByType(InformationType.FindMyFamily));
         model.addAttribute("title", "Finding your family!");
         return "view/info";
     }
@@ -45,6 +46,7 @@ public class InfoController {
     @RequestMapping(value = "/vaccine")
     public String vaccine(Model model) {
         log.info("[InfoController: info], listing info Vaccine");
+        model.addAttribute("infos", informationRepository.findInformationByType(InformationType.Vaccine));
         model.addAttribute("title", "Vaccines");
         return "view/info";
     }
@@ -52,6 +54,7 @@ public class InfoController {
     @RequestMapping(value = "/security")
     public String security(Model model) {
         log.info("[InfoController: info], listing info security");
+        model.addAttribute("infos", informationRepository.findInformationByType(InformationType.Security));
         model.addAttribute("title", "Security");
         return "view/info";
     }
