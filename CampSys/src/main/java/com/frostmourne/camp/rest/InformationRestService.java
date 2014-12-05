@@ -27,13 +27,14 @@ public class InformationRestService {
 
     /**
      * this method give all the information
+     *
      * @return list of all the information in jason
      */
     @RequestMapping(value = "/api/getAllInformation", method = RequestMethod.GET)
     public
     @ResponseBody
     List<Information> getAll() {
-        return (List<Information>)informationRepository.findAll();
+        return (List<Information>) informationRepository.findAll();
     }
 
 
@@ -60,37 +61,30 @@ public class InformationRestService {
 
     /**
      * this method give the api to get all the informations of a type
+     *
      * @param type information type
      * @return all the information of a type in jason
      */
     @RequestMapping(value = "/api/getInformation/{type}", method = RequestMethod.GET)
     public
     @ResponseBody
-    List<Information> getInformationByType( @PathVariable String type) {
-        if(type.equals("findmyfamily")){
+    List<Information> getInformationByType(@PathVariable String type) {
+        if (type.equals("findmyfamily")) {
             return informationRepository.findInformationByType(InformationType.FindMyFamily);
         }
-        if(type.equals("vaccine")){
+        if (type.equals("vaccine")) {
             return informationRepository.findInformationByType(InformationType.Vaccine);
         }
-        if(type.equals("security")){
+        if (type.equals("security")) {
             return informationRepository.findInformationByType(InformationType.Security);
         }
 
-        if(type.equals("normal")){
+        if (type.equals("normal")) {
             return informationRepository.findInformationByType(InformationType.normal);
         }
 
-        return (List<Information>)informationRepository.findAll();
+        return (List<Information>) informationRepository.findAll();
     }
-
-
-
-
-
-
-
-
 
 
 }

@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
+ * An organization entity class
+ * <p/>
  * Created by jamesRMBP on 04/12/14.
  */
 

@@ -5,6 +5,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
+ * Home page controller, finding all presentation
+ * <p/>
  * Created by JIN Benli on 04/12/14.
  */
 @Controller

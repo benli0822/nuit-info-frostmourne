@@ -25,6 +25,7 @@ public class Application {
         InformationRepository informationRepository = context.getBean(InformationRepository.class);
         HelpRequestRepository helpRequestRepository = context.getBean(HelpRequestRepository.class);
 
+        // test data
         User testUser = new User();
         Campsite testCamp = new Campsite();
         testCamp.setAddress("testCamp");
@@ -82,7 +83,6 @@ public class Application {
 
         helpRequestRepository.save(testHelp1);
         helpRequestRepository.save(testHelp2);
-
 
 
     }

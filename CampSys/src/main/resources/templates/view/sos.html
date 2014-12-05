@@ -21,7 +21,6 @@
             <div class="12u">
 
 
-
                 <!-- Table -->
                 <section class="box">
                     <div class="table-wrapper">
@@ -36,7 +35,9 @@
                             <tbody>
                             <tr th:each="info, stat : ${infos}">
                                 <td th:text="*{infos[__${stat.index}__].author.username}">Something</td>
-                                <td th:text="*{infos[__${stat.index}__].description}">Ante turpis integer aliquet porttitor.</td>
+                                <td th:text="*{infos[__${stat.index}__].description}">Ante turpis integer aliquet
+                                    porttitor.
+                                </td>
                                 <td th:text="*{infos[__${stat.index}__].type}">29.99</td>
                             </tr>
                             </tbody>

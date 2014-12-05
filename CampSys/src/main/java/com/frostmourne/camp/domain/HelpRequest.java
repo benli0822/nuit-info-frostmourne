@@ -3,7 +3,9 @@ package com.frostmourne.camp.domain;
 import javax.persistence.*;
 import java.util.Date;
 
-/** a help request is a people who need to find help
+/**
+ * A help request is a people who need to find help
+ * <p/>
  * Created by jamesRMBP on 04/12/14.
  */
 @Entity
@@ -20,7 +22,7 @@ public class HelpRequest {
 
     /**
      * which kind of help request
-        */
+     */
     @Enumerated(EnumType.STRING)
     private HelpRequestType type;
 

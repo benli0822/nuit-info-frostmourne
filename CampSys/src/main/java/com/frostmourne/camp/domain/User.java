@@ -6,6 +6,8 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
+ * Representing the user in our application
+ * <p/>
  * Created by jamesRMBP on 04/12/14.
  */
 
@@ -31,15 +33,13 @@ public class User {
     private Date birthday;
 
 
-
-    public User(){
+    public User() {
 
     }
 
     public long getId() {
         return id;
     }
-
 
 
     public String getPassword() {

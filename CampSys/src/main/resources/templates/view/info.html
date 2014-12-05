@@ -35,7 +35,9 @@
                             <tbody>
                             <tr th:each="info, stat : ${infos}">
                                 <td th:text="*{infos[__${stat.index}__].senderPerson.username}">Something</td>
-                                <td th:text="*{infos[__${stat.index}__].content}">Ante turpis integer aliquet porttitor.</td>
+                                <td th:text="*{infos[__${stat.index}__].content}">Ante turpis integer aliquet
+                                    porttitor.
+                                </td>
                                 <td th:text="*{infos[__${stat.index}__].type}">29.99</td>
                             </tr>
                             </tbody>

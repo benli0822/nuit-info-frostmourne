@@ -22,6 +22,9 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ * Here control all parts for showing and posting message in our application for those people who will need
+ * some help
+ * <p/>
  * Created by JIN Benli on 04/12/14.
  */
 @Controller
@@ -35,6 +38,12 @@ public class InfoController {
     @Autowired
     private UserRepository userRepository;
 
+    /**
+     * Listing all messages for finding their family
+     *
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/find")
     public String info(Model model) {
         log.info("[InfoController: info], listing info find family");
@@ -43,6 +52,12 @@ public class InfoController {
         return "view/info";
     }
 
+    /**
+     * Listing all messages for planting the vaccine
+     *
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/vaccine")
     public String vaccine(Model model) {
         log.info("[InfoController: info], listing info Vaccine");
@@ -51,6 +66,12 @@ public class InfoController {
         return "view/info";
     }
 
+    /**
+     * Listing all messages for security
+     *
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/security")
     public String security(Model model) {
         log.info("[InfoController: info], listing info security");
@@ -59,6 +80,12 @@ public class InfoController {
         return "view/info";
     }
 
+    /**
+     * Listing all messages
+     *
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/all")
     public String all(Model model) {
         log.info("[InfoController: info], listing info all");
@@ -68,6 +95,14 @@ public class InfoController {
         return "view/info";
     }
 
+    /**
+     * Listing the form for posting a message
+     *
+     * @param information
+     * @param model
+     * @param session
+     * @return
+     */
     @RequestMapping(value = "/infopost")
     public String post(final Information information, Model model, HttpSession session) {
         log.info("[InfoController: info], listing info all");
@@ -82,6 +117,15 @@ public class InfoController {
         return "view/post";
     }
 
+    /**
+     * Receiving a posted message
+     *
+     * @param information
+     * @param session
+     * @param bindingResult
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/infopost", method = RequestMethod.POST, params = {"save"})
     public String post(final Information information, HttpSession session, final BindingResult bindingResult, final ModelMap model) {
         log.info("[InfoController: post], posting an information");

@@ -1,7 +1,5 @@
 package com.frostmourne.camp.service;
 
-import com.frostmourne.camp.domain.Information;
-import com.frostmourne.camp.domain.InformationType;
 import com.frostmourne.camp.domain.User;
 
 /**

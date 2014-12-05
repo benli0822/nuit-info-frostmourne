@@ -4,6 +4,8 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
+ * Here we create an information entity to represent the message could be posted in application
+ * <p/>
  * Created by jamesRMBP on 04/12/14.
  */
 @Entity

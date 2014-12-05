@@ -3,7 +3,9 @@ package com.frostmourne.camp.domain;
 import javax.persistence.*;
 import java.util.Set;
 
-/** a campsite is where people live in when war is happened and people should leave their home.
+/**
+ * A campsite is where people live in when war is happened and people should leave their home.
+ * <p/>
  * Created by jamesRMBP on 04/12/14.
  */
 @Entity
@@ -20,13 +22,13 @@ public class Campsite {
     /**
      * who live in this campsite
      */
-    @OneToMany(fetch=FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY)
     private Set<User> residents;
 
     /**
      * who can post information for the campsite
      */
-    @OneToMany(fetch=FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY)
     private Set<User> leaders;
 
 

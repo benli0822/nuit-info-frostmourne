@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.Set;
 
 /**
+ * A donation can be made and traced, this entity represent a donation
+ * <p/>
  * Created by jamesRMBP on 04/12/14.
  */
 @Entity
@@ -35,13 +37,12 @@ public class Donation {
     @OneToOne
     private Organization donorsOrganization;
 
-    @OneToMany(fetch=FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY)
     private Set<Campsite> receiverCamp;
 
     public long getId() {
         return id;
     }
-
 
 
     public Date getDate() {
