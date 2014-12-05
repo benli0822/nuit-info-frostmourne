@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
-/**
+/** this class give the all the information by rest in jason
  * Created by jamesRMBP on 05/12/14.
  */
 @Controller
