@@ -24,8 +24,14 @@ public class Information {
 
     private Date date;
 
+    /**
+     * who post the information, can be a person or a organization
+     */
     @OneToOne
-    private User author;
+    private User senderPerson;
+
+    @OneToOne
+    private Organization senderOrganization;
 
     public long getId() {
         return id;
@@ -64,11 +70,19 @@ public class Information {
         this.date = date;
     }
 
-    public User getAuthor() {
-        return author;
+    public User getSenderPerson() {
+        return senderPerson;
     }
 
-    public void setAuthor(User author) {
-        this.author = author;
+    public void setSenderPerson(User senderPerson) {
+        this.senderPerson = senderPerson;
+    }
+
+    public Organization getSenderOrganization() {
+        return senderOrganization;
+    }
+
+    public void setSenderOrganization(Organization senderOrganization) {
+        this.senderOrganization = senderOrganization;
     }
 }
