@@ -1,6 +1,8 @@
 package com.frostmourne.camp.mvc;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -8,8 +10,35 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class InfoController {
-    @RequestMapping(value = "/info")
-    public String home() {
+    private Logger log = Logger.getLogger(InfoController.class);
+
+    @RequestMapping(value = "/find")
+    public String info(Model model) {
+        log.info("[InfoController: info], listing info find family");
+        model.addAttribute("title", "Finding your family!");
         return "view/info";
     }
+
+    @RequestMapping(value = "/vaccine")
+    public String vaccine(Model model) {
+        log.info("[InfoController: info], listing info Vaccine");
+        model.addAttribute("title", "Vaccines");
+        return "view/info";
+    }
+
+    @RequestMapping(value = "/security")
+    public String security(Model model) {
+        log.info("[InfoController: info], listing info security");
+        model.addAttribute("title", "Security");
+        return "view/info";
+    }
+
+    @RequestMapping(value = "/all")
+    public String all(Model model) {
+        log.info("[InfoController: info], listing info all");
+        model.addAttribute("title", "All");
+        return "view/info";
+    }
+
+
 }
