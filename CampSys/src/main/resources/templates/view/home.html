@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorator="layout">
 
@@ -16,7 +17,9 @@
         <p>This is where you will find your all you need in the camp</p>
         <ul class="actions">
             <li><a href="#" class="button special">Sign Up</a></li>
-            <li><a href="#" class="button">Learn More</a></li>
+
+
+            <li><a class="button" onclick="aud_play_pause()">Read it for me</a></li>
         </ul>
     </section>
 </div>
@@ -26,6 +29,7 @@
 
         <section class="box special">
             <header class="major">
+                <h3  id="audioURLID" th:text="${audioUrl}"></h3>
                 <h2>Be like home at camps
                     <br/>
                     and finding all services here</h2>
@@ -79,6 +83,7 @@
 </div>
 
 
+
 <div layout:fragment="cta">
     <!-- CTA -->
     <section id="cta">
@@ -99,6 +104,44 @@
 
     </section>
 </div>
+<div layout:fragment="script">
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var audioElement = document.createElement('audio');
+            audioElement.setAttribute('id','myAudio');
 
+            var sourceElement = document.createElement('source');
+            //var url = document.getElementById("audioURLID").innerHTML;
+            var url = $(audioURLID).text();
+            //sourceElement.setAttribute('src', url);
+            console.log(url);
+            sourceElement.setAttribute('src', url);
+            sourceElement.setAttribute('type', 'audio/mpeg');
+
+            audioElement.appendChild(sourceElement);
+
+            document.getElementById("banner").appendChild(audioElement);
+
+
+        });
+
+        console.log("asdas");
+
+        function aud_play_pause() {
+            var myAudio = document.getElementById("myAudio");
+            if (myAudio.paused) {
+                myAudio.play();
+            } else {
+                myAudio.pause();
+            }
+        }
+    </script>
+</div>
+<div layout:fragment="audio">
+    <!---audio id="myAudio"-->
+        <!--source src=th:text="${audioUrl} type="audio/mpeg"-->
+    <!--/audio-->
+
+</div>
 </body>
 </html>
