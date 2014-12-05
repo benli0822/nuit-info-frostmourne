@@ -84,7 +84,7 @@ public class InformationRestService {
         return (List<Information>)informationRepository.findAll();
     }
 
-    
+
 
 
 
